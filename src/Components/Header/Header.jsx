@@ -1,32 +1,51 @@
 // import { useState } from 'react';
 import './Header.css';
-import Navbar from '../Navbar/Navbar';
+import logo from '../../Utils/reddit-logo.png';
+import { useState } from 'react';
+import { navigate, useNavigate } from 'react-router-dom';
+// import Navbar from '../Navbar/Navbar';
 
 
 const Header = () => {
 
-    // const [login, setLogin] = useState(false);
+    const navigate = useNavigate();
+
+    const [login, setLogin] = useState('loggedOut');
 
 
+    const loginBtnHandler = () => {
+        navigate('/Login');
+        setLogin('loggedIn');
+    }
 
-    return (
-    
-        <div className='header-container'>
-
-
-            <div className='header-logo'>
-                <img src="https://logos-world.net/wp-content/uploads/2020/10/Reddit-Logo.png" alt="" />
+    if (login === 'loggedOut') {
+        return (
+            <div className='header-container'>
+                <div className='header-logo'>
+                    <img src={logo} alt="" />
+                </div>
+                <div className='login-signup-btn'>
+                    <button onClick={loginBtnHandler}>Login</button>
+                </div>
             </div>
-            <div className='post-upload'>
-                <button>Add New Post</button>
+        )
+    }
+    else {
+        return (
+            <div className='header-container'>
+                <div className='header-logo'>
+                    <img src={logo} alt="" />
+                </div>
+                <div className='post-upload'>
+                    <button>Add New Post</button>
+                </div>
+                <div className='login-signup-btn'>
+                    <button >Logout</button>
+                </div>
             </div>
-            <div className='login-signup-btn'>
-                <button>Logout</button>    
-                    {/* <Navbar />         */}
-                
-            </div>
-        </div>
-    )
+        )
+    }
+
 }
 
 export default Header;

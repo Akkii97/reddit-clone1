@@ -12,8 +12,7 @@ const Posts = () => {
     return (
         <div>
             
-            <Header1 />
-
+            
             <table>
                 <thead>
                 <tr>

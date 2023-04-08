@@ -5,8 +5,10 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Login from './Components/Login/Login';
 import Tabs from './Components/Extra/Tabs';
 import AddPost from './Components/AddPost/AddPost';
+import Main from './Components/Main/Main';
 
 import Header1 from './Components/Header/Header1';
+import User from './Components/User/User';
 
 
 
@@ -27,9 +29,12 @@ function App() {
 
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={<Header1 />} />
+      <Route path='/' element={<Main />} />
       <Route path='/Posts' element={<Posts />} />
       <Route path='/AddPost' element={<AddPost/>} />
+      <Route path='/Login' element={<Login />} />
+      <Route path='/User' element={<User />} />
+
     </Routes>
     </BrowserRouter>
 

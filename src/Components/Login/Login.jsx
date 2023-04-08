@@ -1,8 +1,8 @@
 import './Login.css';
 import Users from '../../Utils/Users';
 import { useState } from 'react';
-import Header1 from '../Header/Header1';
 import { useNavigate } from 'react-router-dom';
+import Posts from '../Posts/Posts';
 
 const Login = (props) => {
 
@@ -11,7 +11,6 @@ const Login = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const [loggedin, setLoggedin] = useState('loggedOut')
 
     const onFormSubmitHandler = (e) => {
         e.preventDefault();
@@ -19,11 +18,8 @@ const Login = (props) => {
         Users.map((user) => {
             if (email === user.email && password === user.password) {
                 alert('login Successfully');
-                // setLoggedin('loggedIn');
-                props.loginCheck('loggedIn');
-                navigate('/Posts');
-            
-                
+                // props.loginCheck('loggedIn');
+                navigate('/User');   
             }
             else if (email !== user.email) {
                 alert('wrong email')
